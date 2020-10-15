@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.min.css";
 import Landing from './screens/Landing';
-import { FaCloud } from "react-icons/fa";
 import './App.css';
 // import { render } from '@testing-library/react';
 
@@ -23,7 +23,7 @@ class App extends React.Component {
               
 
               <Route path="/">
-                <Landing logo={ FaCloud }/>
+                <Landing />
               </Route>
   
             </Switch>

@@ -15,7 +15,9 @@
   justify-content: space-between;
   align-items: center;
 }
+.logo-brand-cont{
 
+}
 .landing-btn-cont{
   display: flex;
   flex-direction: column;
@@ -32,10 +34,16 @@
   background-color: rgb(241, 81, 60);
   color: white;
 }
+.btn-primary:hover{
+  background-color: rgb(204, 72, 55);
+}
 .brand-name{
   font-weight: bold;
+  font-size: .8em;
+  padding-top: 4em;
 }
 .logo{
   fill: white;
-  font-size: 3em;
+  transform: scale(7);
+  padding-top: .6em;
 }
