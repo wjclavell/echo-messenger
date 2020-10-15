@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+/* User Profile */
+.profile {
+  color: #616161;
+  background-color: white;
+  padding: 2em 1em;
+  border-radius: 5px;
+}
+.profile h6 {
+  margin-bottom: 2em;
+}
+.profileField {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #616161;
+}
+.profileField label {
+  font-size: 0.75em;
+  margin-right: 2em;
+  padding-top: 1em;
+}
+.profileField input {
+  border: none;
+  font-size: 0.75em;
+}
