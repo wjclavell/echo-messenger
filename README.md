@@ -1,3 +1,128 @@
+
+### User Stories:
+
+- Quinn is a musician that wants to connect with other artists.
+- He can register an account with the Cloud Message app to have his login info saved.
+- In order to access his inbox, he will input his registered account information into the login form on the landing page.
+- Upon logging in, he will see the main inbox, with a list of messages received from senders and a preview of the messages last received or sent from that user.
+- To access a conversation, the user can click on the individual conversation in the list and a new view with the conversation between the users will appear.
+- A popup text field in the conversation view will either create or update the message from the user upon submission depending on the models used.
+- A upper navbar giving the option to select profile settings or to log out of the account.
+- A user settings modal that allows user to change their avatar or delete their account.
+
+
+### Wireframes:
+
+- Mobile
+- Web
+
+
+
+## MVP Screens:
+- Landing Page
+- Login 
+- Signup
+- User Profile
+
+
+
+## MVP Components Structure:
+
+### Landing (screen)
+
+Child components: 
+
+- Header / Nav 
+
+    Conditions:
+
+        if loggedIn - shows orange nav) 
+
+        if !loggedIn (landing page) - shows logo
+    
+- logReg (component)
+
+    Conditions: 
+
+        if isSignIn - shows 'Sign In' in modal title, shows sign in fields (username, password)
+
+        if isSignUp - shows 'Sign Up' in modal title, sign up fields (username, email, password)
+
+
+
+
+
+## Messenger (screen)
+
+
+
+Child components: 
+
+- Header / nav
+
+- Message (component)
+
+    Conditions:
+
+        if isSingleConversation - shows all messages between filtered sender / receiver (sort by latest message at top)
+
+            Child component: 
+
+                genMsgHeader
+
+                    Generic "Messages" with icon to create new message
+
+        if isAllConversations - shows latest message excerpt between each sender / receiver conversation.
+
+            Child component: 
+
+                convoHeader:
+                    
+                    Avatar/name of receiver who user is in conversation with
+
+            
+- Profile (modal)
+
+    Conditions: 
+
+        if isUserProfile - show option to update avatar, username, password, and delete account
+
+
+
+
+
+
+## Additional Libraries:
+- Bootstrap (modals, nav)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
