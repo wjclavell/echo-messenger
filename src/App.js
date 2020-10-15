@@ -1,24 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Landing from './screens/Landing';
 import './App.css';
-import UserProfile from './components/UserProfile';
+// import { render } from '@testing-library/react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+    }
+  }
+
+  render() {
+
+    return (
+      <div className="App">
+          <BrowserRouter>
+            <Switch>
+              
+
+              <Route path="/">
+                <Landing />
+              </Route>
+  
+            </Switch>
+          </BrowserRouter>
+      </div>
+    );
+  }
 }
 
 export default App;
