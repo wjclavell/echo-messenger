@@ -1,8 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Landing from './screens/Landing';
 import './App.css';
-import UserProfile from './components/UserProfile';
+// import { render } from '@testing-library/react';
 
+<<<<<<< HEAD
 function App() {
   return (
     <div className="App">
@@ -20,6 +23,34 @@ function App() {
       </header>
     </div>
   );
+=======
+
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+    }
+  }
+
+  render() {
+
+    return (
+      <div className="App">
+          <BrowserRouter>
+            <Switch>
+              
+
+              <Route path="/">
+                <Landing />
+              </Route>
+  
+            </Switch>
+          </BrowserRouter>
+      </div>
+    );
+  }
+>>>>>>> 2b9c8a1d1817affad047437f5bba120d49888f42
 }
 
 export default App;
