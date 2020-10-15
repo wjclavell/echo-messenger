@@ -47,3 +47,37 @@
   transform: scale(7);
   padding-top: .6em;
 }
+
+/* User Profile */
+.profile {
+  color: #616161;
+  background: linear-gradient(
+    to bottom,
+    #d4d4d4,
+    #d4d4d4 25%,
+    white 25%,
+    white 75%,
+    #d4d4d4 75%
+  );
+  padding: 2em 1em;
+  border-radius: 10px;
+}
+.profile h3 {
+  margin-bottom: 2em;
+  font-weight: bold;
+  color: #616161;
+}
+.profileField {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #616161;
+}
+.profileField label {
+  font-size: 0.75em;
+  margin-right: 2em;
+  padding-top: 0.75em;
+}
+.profileField input {
+  border: none;
+  font-size: 0.75em;
+}
