@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Landing from './screens/Landing';
 import './App.css';
 // import { render } from '@testing-library/react';
+import Main from './components/Main'
 
 
 class App extends React.Component {
@@ -20,10 +21,11 @@ class App extends React.Component {
       <div className="App">
           <BrowserRouter>
             <Switch>
-              
-
-              <Route path="/">
+              <Route exact path="/">
                 <Landing />
+              </Route>
+              <Route path="/main">
+                <Main/>
               </Route>
   
             </Switch>

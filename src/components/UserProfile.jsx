@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
-import updateUser from './../services'
+import {updateUser} from './../services'
 
 class UserProfile extends React.Component {
   constructor(props) {
