@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 //TODO: might not need this styling import
 import "bootstrap/dist/css/bootstrap.min.css";
 import LogRegModal from '../components/LogRegModal';

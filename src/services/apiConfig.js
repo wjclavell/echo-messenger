@@ -12,7 +12,8 @@ const apiUrl = "https://messenger-django-api.herokuapp.com/"
 const Api = Axios.create({
   baseURL: apiUrl,
   headers: {
-		Authorization: `JWT ${JwtToken()}`,
+    // Authorization: `JWT ${JwtToken()}`,
+    Authorization: "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImpybyIsImV4cCI6MTYwODA2MTA2NCwiZW1haWwiOiJqZXJlbXlAamVyZW15LmNvbSJ9.ECXDH3tVifFdjoiX0jl4a6nfj4OvHtLQ49Dk0ue1-Ow"
     // 'Access-Control-Allow-Origin': '*',
     // 'Content-Type': "application/json"
   }
