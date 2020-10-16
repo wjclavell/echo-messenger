@@ -1,15 +1,6 @@
 import Api from './apiConfig';
 import { changeHeader, clearHeader } from './apiConfig';
 
-export const updateUser = async (userData) => {
-  try {
-    const resp = await Api.put('cloud_msg/UserProfiles', userData);
-      return resp
-  }
-  catch(err) {
-    throw err
-  }
-}
 
 export const login = async (userData) => {
   try {
@@ -40,9 +31,33 @@ export const register = async (userData) => {
   }
 }
 
-export const deleteUser = async (userData) => {
+export const updateUser = async (userData) => {
+  const id = userData.id
   try {
-    const resp = await Api.delete('cloud_msg/UserProfiles', userData);
+    const resp = await Api.put(`cloud_msg/UserProfiles/${id}/`, userData);
+      return resp
+  }
+  catch(err) {
+    throw err
+  }
+}
+
+
+
+export const deleteUser = async (userData) => {
+  const id = userData.id
+  try {
+    const resp = await Api.delete(`cloud_msg/UserProfiles/${id}/`, userData);
+      return resp
+  }
+  catch(err) {
+    throw err
+  }
+}
+
+export const getAllMsg = async (userData) => {
+  try {
+    const resp = await Api.get(`cloud_msg/messages/`);
       return resp
   }
   catch(err) {
