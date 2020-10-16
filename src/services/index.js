@@ -10,3 +10,13 @@ export const updateUser = async (userData) => {
     throw err
   }
 }
+
+export const deleteUser = async (userData) => {
+  try {
+    const resp = await Api.delete('cloud_msg/UserProfiles', userData);
+      return resp
+  }
+  catch(err) {
+    throw err
+  }
+}

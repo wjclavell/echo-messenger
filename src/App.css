@@ -2,9 +2,9 @@
   text-align: center;
 }
 
-.landing-container{
+.landing-container {
   height: 100vh;
-  background-image: url('https://res.cloudinary.com/infiniteloom/image/upload/v1602724522/Echo%20Messenger/Nightclub-Photography-4_ludujk.jpg');
+  background-image: url("https://res.cloudinary.com/infiniteloom/image/upload/v1602724522/Echo%20Messenger/Nightclub-Photography-4_ludujk.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -15,50 +15,47 @@
   justify-content: space-between;
   align-items: center;
 }
-.logo-brand-cont{
-
-}
-.landing-btn-cont{
+.landing-btn-cont {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 3em;
 }
-.btn{
+.btn {
   width: 340px;
   height: 60px;
   border-radius: 10px;
   margin: 10px;
 }
-.btn-primary{
+.btn-primary {
   background-color: rgb(241, 81, 60);
   color: white;
 }
-.btn-primary:hover{
+.btn-primary:hover {
   background-color: rgb(204, 72, 55);
 }
-.brand-name{
+.brand-name {
   font-weight: bold;
-  font-size: .8em;
+  font-size: 0.8em;
   padding-top: 4em;
 }
-.logo{
+.logo {
   fill: white;
   transform: scale(7);
-  padding-top: .6em;
+  padding-top: 0.6em;
 }
 
 /* User Profile */
 .profile {
   color: #616161;
-  background: linear-gradient(
+  /* background: linear-gradient(
     to bottom,
     #d4d4d4,
     #d4d4d4 25%,
     white 25%,
     white 75%,
     #d4d4d4 75%
-  );
+  ); */
   padding: 2em 1em;
   border-radius: 10px;
 }

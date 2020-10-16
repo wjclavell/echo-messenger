@@ -3,27 +3,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Landing from './screens/Landing';
 import './App.css';
+import UserProfile from './components/UserProfile'
 // import { render } from '@testing-library/react';
 
-<<<<<<< HEAD
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <UserProfile />
-      </header>
-    </div>
-  );
-=======
 
 class App extends React.Component {
 
@@ -37,6 +19,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
+        
           <BrowserRouter>
             <Switch>
               
@@ -50,7 +33,6 @@ class App extends React.Component {
       </div>
     );
   }
->>>>>>> 2b9c8a1d1817affad047437f5bba120d49888f42
 }
 
 export default App;

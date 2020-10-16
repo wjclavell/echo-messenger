@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal'
-import {updateUser} from './../services';
+import Modal from 'react-bootstrap/Modal';
+import {updateUser, deleteUser} from './../services';
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -31,6 +31,7 @@ class UserProfile extends React.Component {
   handleSubmit = async (e) => {
   //* "this is where we will call the update user method from our services"
     e.preventDefault();
+    this.setState({isOpen: false})
     const resp = await updateUser(this.state);
     if (!resp) {
         this.setState({
@@ -42,12 +43,27 @@ class UserProfile extends React.Component {
     }
   }
 
+  handleDelete = async (e) => {
+    e.preventDefault();
+    this.setState({isOpen: false})
+    const resp = await deleteUser(this.state);
+    if (!resp) {
+        this.setState({
+            error: 'Could not delete user.'
+        })
+    } else {
+        await this.props.setUser({username: null, password: null, avatar: null});
+        this.props.history.push(`/`);
+    }
+  }
+
 render () {
   return (
-    <form className='profile'>
-      <Modal show={this.state.isOpen}>
-      <Modal.Header>
-        <h3>User Profile</h3>
+    <>
+      <button onClick={this.showModal}>open profile modal</button>
+      <Modal show={this.state.isOpen} onHide={this.hideModal}>
+      <Modal.Header style={{backgroundColor: '#cccccc'}} closeButton>
+        <Modal.Title>User Profile</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <div className='profileField'>
@@ -63,15 +79,16 @@ render () {
         <input type='text' name='avatar' placeholder='Enter an image url' value={this.state.avatar} onChange={e => this.handleChange(e)}/>
         </div>
       </Modal.Body>
-      <Modal.Footer>
-        <div className="updateUserButton">
+      <Modal.Footer style={{backgroundColor: '#cccccc'}}>
+        <div className="user-buttons">
           {this.state.error}
-          <Button type="submit" variant='secondary' style={{margin: '0 auto'}} onClick={this.handleSubmit}>Save Changes</Button>
+          <Button variant='danger' onClick={this.handleDelete} style={{width: '10em', background: 'none', border: 'none', color: 'red'}}>Delete account</Button>
+          <Button type="submit" variant='secondary' onClick={this.handleSubmit} style={{width: '10em', height: '50px'}}>Save Changes</Button>
         </div>
       </Modal.Footer>
     </Modal>
-    <button onClick={this.showModal}>open profile modal</button>
-      <h3>User Profile</h3>
+
+      {/* <h3>User Profile</h3>
       <div className='profileField'>
           <label htmlFor='username'>USERNAME</label>
           <input type='text' name='username' placeholder='Change username' value={this.state.username} onChange={(e) => this.handleChange(e)}/>
@@ -87,8 +104,8 @@ render () {
       <div className="updateUserButton">
           {this.state.error}
           <Button type="submit" style={{backgroundColor: '#616161', marginTop: '3em'}}  onClick={this.handleSubmit}>Save Changes</Button>
-      </div>
-    </form>
+      </div> */}
+    </>
   )
 }
 }
