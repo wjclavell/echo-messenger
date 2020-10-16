@@ -2,37 +2,82 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.landing-container{
+  height: 100vh;
+  background-image: url('https://res.cloudinary.com/infiniteloom/image/upload/v1602724522/Echo%20Messenger/Nightclub-Photography-4_ludujk.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
+.logo-brand-cont{
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.landing-btn-cont{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-bottom: 3em;
+}
+.btn{
+  width: 340px;
+  height: 60px;
+  border-radius: 10px;
+  margin: 10px;
+}
+.btn-primary{
+  background-color: rgb(241, 81, 60);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.btn-primary:hover{
+  background-color: rgb(204, 72, 55);
+}
+.brand-name{
+  font-weight: bold;
+  font-size: .8em;
+  padding-top: 4em;
+}
+.logo{
+  fill: white;
+  transform: scale(7);
+  padding-top: .6em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* User Profile */
+.profile {
+  color: #616161;
+  background: linear-gradient(
+    to bottom,
+    #d4d4d4,
+    #d4d4d4 25%,
+    white 25%,
+    white 75%,
+    #d4d4d4 75%
+  );
+  padding: 2em 1em;
+  border-radius: 10px;
+}
+.profile h3 {
+  margin-bottom: 2em;
+  font-weight: bold;
+  color: #616161;
+}
+.profileField {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #616161;
+}
+.profileField label {
+  font-size: 0.75em;
+  margin-right: 2em;
+  padding-top: 0.75em;
+}
+.profileField input {
+  border: none;
+  font-size: 0.75em;
 }

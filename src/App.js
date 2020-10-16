@@ -1,33 +1,38 @@
 import React from 'react';
-// import logo from './logo.svg';
-import './index.css';
-import { ReactComponent as logo} from '../src/logo.svg';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Landing from './screens/Landing';
+import './App.css';
+// import { render } from '@testing-library/react';
+import Main from './components/Main'
 
-function App() {
-  return (
-      <Navbar>
-        <NavItem icon={<BellIcon/>}/>
-      </Navbar>
 
-  );
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+    }
+  }
+
+  render() {
+
+    return (
+      <div className="App">
+          <BrowserRouter>
+            <Switch>
+              <Route exact path="/">
+                <Landing />
+              </Route>
+              <Route path="/main">
+                <Main/>
+              </Route>
+  
+            </Switch>
+          </BrowserRouter>
+      </div>
+    );
+  }
 }
-
-function Navbar(props){
-  return (
-    <nav className="navbar">
-      <ul className="navbar-list"> { props.children } </ul>
-    </nav>
-  );
-}
-function NavItem(props){
-  return(
-    <li className="nav-item">
-      <a href="#" className="icon-button">
-        {props.icon}
-      </a>
-    </li>
-  );
-}
-
 
 export default App;

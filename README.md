@@ -1,7 +1,5 @@
 
-## User Stories
-
-### User story:
+### User Stories:
 
 - Quinn is a musician that wants to connect with other artists.
 - He can register an account with the Cloud Message app to have his login info saved.
@@ -13,7 +11,7 @@
 - A user settings modal that allows user to change their avatar or delete their account.
 
 
-## Wireframes:
+### Wireframes:
 
 - Mobile
 - Web
