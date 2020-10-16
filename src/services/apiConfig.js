@@ -5,7 +5,9 @@ export const JwtToken = () => localStorage.getItem('token') || null;
 //   'http://localhost:8000/' :
 //   null // replace with deployed API URL
 
-const apiUrl = 'https://p4-app.herokuapp.com/'
+const apiURL = "https://messenger-django-api.herokuapp.com/"
+
+// const apiUrl = 'https://p4-app.herokuapp.com/'
 
 const Api = Axios.create({
   baseURL: apiUrl,
