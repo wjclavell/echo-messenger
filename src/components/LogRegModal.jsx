@@ -1,4 +1,6 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -34,7 +36,8 @@ class LogRegModal extends React.Component {
         })
     }
 
-    //TODO: post request for login
+
+
     handleSave = async event => {
         console.log("event", event)
         const loginData = {
@@ -43,8 +46,17 @@ class LogRegModal extends React.Component {
         }
         console.log("handleSave login", loginData)
         const resp = await login(loginData);
-        console.log("resp", resp)
 
+        console.log("resp", resp)
+        console.log("resp status", resp.status )
+        if(resp.status == 200) {
+            //TODO: pass response to main page
+            //TODO: send user to main page
+            this.useHistory().push("main")
+            
+        }
+
+    
 
         this.setState({
             show:false
@@ -91,7 +103,7 @@ class LogRegModal extends React.Component {
                 Close
                 </Button>
                 <Button variant="primary" onClick={this.handleSave}>
-                Save Changes
+                Login
                 </Button>
             </Modal.Footer>
             </Modal>

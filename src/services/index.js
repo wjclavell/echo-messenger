@@ -3,7 +3,7 @@ import { changeHeader, clearHeader } from './apiConfig';
 
 export const updateUser = async (userData) => {
   try {
-    const resp = await Api.put('cloud_msg/UserProfiles', userData);
+    const resp = await Api.put('cloud_msg/UserProfiles/', userData);
       return resp
   }
   catch(err) {
@@ -19,10 +19,14 @@ export const login = async (userData) => {
           await clearHeader();
           await localStorage.setItem('token', resp.data.token);
           await changeHeader();
+          //TODO: send user to main page
+          //TODO: pass response to main page
+
       }
       return resp;
   } catch (error) {
       throw error
+      //TODO:  throw toast with error
   }
 }
 
