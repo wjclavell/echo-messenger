@@ -11,6 +11,35 @@ export const updateUser = async (userData) => {
   }
 }
 
+export const login = async (userData) => {
+  try {
+      console.log("api default header", Api.defaults.headers)
+      const resp = await Api.post('auth/users/login/', userData);
+      if (resp.status === 200) {
+          await clearHeader();
+          await localStorage.setItem('token', resp.data.token);
+          await changeHeader();
+      }
+      return resp;
+  } catch (error) {
+      throw error
+  }
+}
+
+export const register = async (userData) => {
+  try {
+      const resp = await Api.post('auth/users/register/', userData);
+      if (resp.status === 201) {
+          await clearHeader();
+          await localStorage.setItem('token', resp.data.token);
+          await changeHeader();
+      }
+      return resp;
+  } catch (error) {
+      throw error
+  }
+}
+
 export const deleteUser = async (userData) => {
   try {
     const resp = await Api.delete('cloud_msg/UserProfiles', userData);
