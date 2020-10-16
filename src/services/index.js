@@ -38,3 +38,13 @@ export const register = async (userData) => {
       throw error
   }
 }
+
+export const deleteUser = async (userData) => {
+  try {
+    const resp = await Api.delete('cloud_msg/UserProfiles', userData);
+      return resp
+  }
+  catch(err) {
+    throw err
+  }
+}
