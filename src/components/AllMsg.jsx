@@ -31,19 +31,33 @@ class AllMsg extends React.Component {
     render () {
         // console.log(this.state.messages.results)  
         // get unique combos of convo people
-        const receivers = {}
-        const uniqueConvos = this.state.messages.results && this.state.messages.results.reverse().forEach(convo =>{
+        const receivers = []
+        // const receivers = [
+        //         const receiver_id = {
+        //             name: "",
+        //             avatar: "",
+        //             messages: []
+        //         }
+        // ]
+        this.state.messages.results && this.state.messages.results.reverse().forEach(convo =>{
             // console.log('this is unique convos for each loop', convo)
             if(!receivers[convo.receiver]){
-                receivers[convo.receiver] = [convo.message]
+                // create obj, and assign the key:value pairs
+                receivers[convo.receiver] = {
+                    name: convo.receiver_name, 
+                    avatar: convo.receiver_avatar, 
+                    messages: [convo.message]
+                }
             }else{
-                receivers[convo.receiver].push(convo.message)
+                receivers[convo.receiver_name].messages.push(convo.message)
             }
+
         })
         console.log('this is unique receiver', receivers)        
 
 
-        const allMsgs = this.state.messages.results && this.state.messages.results.reverse().map((msg, index) => {
+        const allMsgs = Object.keys(receivers).length && Object.keys(receivers).map((msg, index) => {
+            console.log(Object.keys(receivers))
 
             return (
                 <div className="message-cont" key={index}>
