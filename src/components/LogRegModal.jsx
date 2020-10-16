@@ -3,85 +3,97 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "bootstrap/dist/css/bootstrap.min.css";
+import {login} from '../services/index'
 
-//TODO: figure out why not changing state for username
 
-function LogRegModal({modalName, styling, isLogin})  {
-    // const [show, setShow] = React.useState(false);
+class LogRegModal extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            show: false,
+            username: '',
+            password: '',
+        }
+    }
 
-    const [state, setState] = React.useState({
-        show: false,
-        setShow: false,
-        username: '',
-        password: '',
-    })
-
-    const handleChange = (event) => {
-        setState({
-            ...state,
+    handleChange = (event) => {
+        this.setState({
             [event.target.name]: event.target.value
         })
     }
 
-    const handleClose = () => {
-        setState({
-            setShow: false
+    handleClose = () => {
+        this.setState({
+            show: false
         })
     }
 
-    const handleShow = () => {
-        setState({
-            setShow: true
+    handleShow = () => {
+        this.setState({
+            show: true
         })
     }
-  
-    // const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
+
+    handleSave = () => {
+        console.log("handlesave")
+        const login = {
+            username: this.state.username,
+            password: this.state.password
+        }
+        console.log("login", login)
+        this.setState({
+            show:false
+        })
+    }
 
 
-    const isRegOrLoginHeader = () => {
-        if(isLogin) {
+    isRegOrLoginHeader = () => {
+        if(this.props.isLogin) {
             return "Login"
         }
         
         return "Register"
     }
-  
-    return (
-      <>
-        <Button variant={styling} onClick={handleShow}>
-          {modalName}
-        </Button>
-  
-        <Modal show={state.show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>{isRegOrLoginHeader()}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form>
-                <Form.Group controlId="formBasicUsername">
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control type="text" name="username" placeholder="Enter username" value={state.username} onChange={handleChange} />
-                </Form.Group>
 
-                <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name="password" placeholder="Enter password" value={state.password} onChange={handleChange} />
-                </Form.Group>
-            </Form>              
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={handleClose}>
-              Save Changes
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </>
-    );
-  }
   
+    render() {
+        const {modalName, styling, isLogin} = this.props
+        return (
+        <>
+            <Button variant={styling} onClick={this.handleShow}>
+            {modalName}
+            </Button>
+    
+            <Modal show={this.state.show} onHide={this.handleClose}>
+            <Modal.Header closeButton>
+                <Modal.Title>{this.isRegOrLoginHeader()}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <Form>
+                    <Form.Group controlId="formBasicUsername">
+                        <Form.Label>Username</Form.Label>
+                        <Form.Control type="text" name="username" placeholder="Enter username" value={this.state.username} onChange={this.handleChange} />
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="password" name="password" placeholder="Enter password" value={this.state.password} onChange={this.handleChange} />
+                    </Form.Group>
+                </Form>              
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="secondary" onClick={this.handleClose}>
+                Close
+                </Button>
+                <Button variant="primary" onClick={this.handleSave}>
+                Save Changes
+                </Button>
+            </Modal.Footer>
+            </Modal>
+        </>
+        );
+    }
+
+}
 
 export default LogRegModal;
