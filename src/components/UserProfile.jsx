@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import {Button, Modal} from 'react-bootstrap';
+import { FiUser } from "react-icons/fi";
 import {updateUser, deleteUser} from './../services';
 
 class UserProfile extends React.Component {
@@ -60,7 +60,11 @@ class UserProfile extends React.Component {
 render () {
   return (
     <>
-      <button onClick={this.showModal}>open profile modal</button>
+      <a href="#home" onClick={this.showModal}>
+            {" "}
+            <FiUser size="2em" color="white" className="mr-4" />
+          </a>
+      {/* <button onClick={this.showModal}>open profile modal</button> */}
       <Modal show={this.state.isOpen} onHide={this.hideModal}>
       <Modal.Header style={{backgroundColor: '#cccccc'}} closeButton>
         <Modal.Title>User Profile</Modal.Title>

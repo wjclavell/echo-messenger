@@ -3,8 +3,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Landing from './screens/Landing';
 import './App.css';
-import UserProfile from './components/UserProfile'
+// import UserProfile from './components/UserProfile'
 // import { render } from '@testing-library/react';
+import Main from './components/Main'
 
 
 class App extends React.Component {
@@ -22,10 +23,11 @@ class App extends React.Component {
         
           <BrowserRouter>
             <Switch>
-              
-
-              <Route path="/">
+              <Route exact path="/">
                 <Landing />
+              </Route>
+              <Route path="/main">
+                <Main/>
               </Route>
   
             </Switch>
