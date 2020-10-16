@@ -1,6 +1,7 @@
 import React from 'react'
-
 import Navigation from '../components/Navigation';
+import AllMsg from '../components/AllMsg'
+
 
 const user = {
     'username': 'Grace Salas',
@@ -8,10 +9,14 @@ const user = {
 }
 
 const Main = () => {
+
     return(<>   
         <Navigation username={user.username} avatar={user.avatar} />
-        <h1>Messages</h1>
+        <AllMsg />
+
+
      </>)
+
 }
 
 export default Main;

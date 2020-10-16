@@ -55,7 +55,7 @@ export const deleteUser = async (userData) => {
   }
 }
 
-export const getAllMsg = async (userData) => {
+export const getAllMsg = async () => {
   try {
     const resp = await Api.get(`cloud_msg/messages/`);
       return resp
