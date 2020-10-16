@@ -13,7 +13,8 @@ const Api = Axios.create({
   baseURL: apiUrl,
   headers: {
 		Authorization: `JWT ${JwtToken()}`,
-    'Access-Control-Allow-Origin': '*'
+    // 'Access-Control-Allow-Origin': '*',
+    // 'Content-Type': "application/json"
   }
 })
 

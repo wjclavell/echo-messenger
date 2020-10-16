@@ -34,13 +34,18 @@ class LogRegModal extends React.Component {
         })
     }
 
-    handleSave = () => {
-        console.log("handlesave")
-        const login = {
+    //TODO: post request for login
+    handleSave = async event => {
+        console.log("event", event)
+        const loginData = {
             username: this.state.username,
             password: this.state.password
         }
-        console.log("login", login)
+        console.log("handleSave login", loginData)
+        const resp = await login(loginData);
+        console.log("resp", resp)
+
+
         this.setState({
             show:false
         })
@@ -57,7 +62,7 @@ class LogRegModal extends React.Component {
 
   
     render() {
-        const {modalName, styling, isLogin} = this.props
+        const {modalName, styling} = this.props
         return (
         <>
             <Button variant={styling} onClick={this.handleShow}>

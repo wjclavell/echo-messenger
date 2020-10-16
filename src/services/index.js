@@ -13,6 +13,7 @@ export const updateUser = async (userData) => {
 
 export const login = async (userData) => {
   try {
+      console.log("api default header", Api.defaults.headers)
       const resp = await Api.post('auth/users/login/', userData);
       if (resp.status === 200) {
           await clearHeader();
