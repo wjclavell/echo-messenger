@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Nav} from "react-bootstrap";
-import Logo from "./hbu.jpg";
+import Logo from "../assets/echo_logo_orange.svg";
 // import { FiUser } from "react-icons/fi";
 
 import UserProfile from './UserProfile';
@@ -8,7 +8,7 @@ import UserProfile from './UserProfile';
 // import './index.css';
 import Image from "react-bootstrap/Image";
 
-const Navigation = ({ username }) => {
+const Navigation = ({ username, avatar }) => {
   const [show, setShow] = React.useState(false); //hook
 
   const handleClose = () => setShow(false);
@@ -18,9 +18,9 @@ const Navigation = ({ username }) => {
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand>
           <Image
-            src={Logo}
-            width="30"
-            height="30"
+            src={avatar !== "" ? avatar : Logo}
+            width="40"
+            height="40"
             className="d-inline-block align-top"
             roundedCircle
           />

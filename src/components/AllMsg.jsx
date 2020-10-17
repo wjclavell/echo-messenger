@@ -71,7 +71,7 @@ class AllMsg extends React.Component {
                         {msg.name}
                     </h3>
                     <p className="message-p">
-                        {msg.messages[0]}
+                        {msg.messages[0].length > 40 ? msg.messages[0].substring(0,40) + '...' : msg.messages[0]}
                     </p>
                     </div>
                 </div>
