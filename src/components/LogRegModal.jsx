@@ -65,7 +65,7 @@ class LogRegModal extends React.Component {
         const {modalName, styling} = this.props
         return (
         <>
-            <Button variant={styling} onClick={this.handleShow}>
+            <Button variant={styling} onClick={this.handleShow} style={{fontWeight: 'bold'}}>
             {modalName}
             </Button>
     
