@@ -7,7 +7,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import {login} from '../services/index'
+import {login, register} from '../services/index'
+import { clearHeader } from '../services/apiConfig';
 
 
 class LogRegModal extends React.Component {
@@ -17,6 +18,9 @@ class LogRegModal extends React.Component {
             show: false,
             username: '',
             password: '',
+            email: '',
+            firstname: '',
+            lastname: ''
         }
     }
 
@@ -28,7 +32,12 @@ class LogRegModal extends React.Component {
 
     handleClose = () => {
         this.setState({
-            show: false
+            show: false,
+            username: '',
+            password: '',
+            email: '',
+            firstname: '',
+            lastname: ''
         })
     }
 
@@ -38,19 +47,31 @@ class LogRegModal extends React.Component {
         })
     }
 
-
     handleSave = async event => {
-        console.log("event", event)
+        if(!this.props.isLogin) {
+            const registerData = {
+                first_name: this.state.firstname,
+                last_name: this.state.lastname,
+                email: this.state.email,
+                username: this.state.username,
+                password: this.state.password
+            }
+            //TODO: make register request
+            const resp = await register(registerData);
+            console.log("handleSave Register response", resp)
+            console.log("resp status", resp.status )
+        }
+
+        // since register does not return ID, after user is registered, login request will be made right after
         const loginData = {
             username: this.state.username,
             password: this.state.password
         }
-
-        console.log("handleSave login", loginData)
         const resp = await login(loginData);
 
-        console.log("resp", resp)
+        console.log("handleSave Login response", resp)
         console.log("resp status", resp.status )
+
         if(resp.status == 200) {
             //saves data in local storage
             localStorage.setItem("username", resp.data.username)
@@ -62,6 +83,9 @@ class LogRegModal extends React.Component {
                 pathname: "/main",
                 data: resp.data
             })
+        }else {
+            //TODO:  throw toast with error
+            console.log("login failed", resp.status)
         }
 
         this.setState({
@@ -69,18 +93,32 @@ class LogRegModal extends React.Component {
         })
     }
 
-
-    isRegOrLoginHeader = () => {
-        if(this.props.isLogin) {
-            return "Login"
-        }
-        
-        return "Register"
-    }
-
   
     render() {
         const {modalName, styling} = this.props
+        const BtnName = this.props.isLogin ? ("Login") : ("Register")
+
+        const ifRegisterModal = this.props.isLogin ? (<> </>) : (
+            <>
+
+            <Form.Group controlId="formBasicFirstName">
+                <Form.Label>First Name</Form.Label>
+                <Form.Control type="text" name="firstname" placeholder="Enter First Name" value={this.state.firstname} onChange={this.handleChange} />
+            </Form.Group>
+
+            <Form.Group controlId="formBasicLastName">
+                <Form.Label>Last Name</Form.Label>
+                <Form.Control type="text" name="lastname" placeholder="Enter Last Name" value={this.state.lastname} onChange={this.handleChange} />
+            </Form.Group>
+
+            <Form.Group controlId="formBasicEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" name="email" placeholder="Enter email" value={this.state.email} onChange={this.handleChange} />
+            </Form.Group>
+
+            </>
+        )
+
         return (
         <>
             <Button variant={styling} onClick={this.handleShow}>
@@ -89,10 +127,12 @@ class LogRegModal extends React.Component {
     
             <Modal show={this.state.show} onHide={this.handleClose}>
             <Modal.Header closeButton>
-                <Modal.Title>{this.isRegOrLoginHeader()}</Modal.Title>
+                <Modal.Title>{BtnName}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
+                    {ifRegisterModal}
+
                     <Form.Group controlId="formBasicUsername">
                         <Form.Label>Username</Form.Label>
                         <Form.Control type="text" name="username" placeholder="Enter username" value={this.state.username} onChange={this.handleChange} />
@@ -109,7 +149,7 @@ class LogRegModal extends React.Component {
                 Close
                 </Button>
                 <Button variant="primary" onClick={this.handleSave}>
-                Login
+                Save
                 </Button>
             </Modal.Footer>
             </Modal>
