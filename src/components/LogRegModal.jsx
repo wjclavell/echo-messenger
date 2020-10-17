@@ -1,10 +1,12 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+//used to pass data to another screen
+import { withRouter } from 'react-router-dom';
 
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import {login} from '../services/index'
 
 
@@ -37,26 +39,30 @@ class LogRegModal extends React.Component {
     }
 
 
-
     handleSave = async event => {
         console.log("event", event)
         const loginData = {
             username: this.state.username,
             password: this.state.password
         }
+
         console.log("handleSave login", loginData)
         const resp = await login(loginData);
 
         console.log("resp", resp)
         console.log("resp status", resp.status )
         if(resp.status == 200) {
-            //TODO: pass response to main page
-            //TODO: send user to main page
-            this.useHistory().push("main")
-            
-        }
+            //saves data in local storage
+            localStorage.setItem("username", resp.data.username)
+            localStorage.setItem("userId", resp.data.id)
+            localStorage.setItem("email", resp.data.email)
 
-    
+            //sends user to main page
+            this.props.history.push({
+                pathname: "/main",
+                data: resp.data
+            })
+        }
 
         this.setState({
             show:false
@@ -113,4 +119,4 @@ class LogRegModal extends React.Component {
 
 }
 
-export default LogRegModal;
+export default withRouter(LogRegModal);
