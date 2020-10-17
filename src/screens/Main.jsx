@@ -1,5 +1,7 @@
 import React from 'react'
 import Navigation from '../components/Navigation';
+import AllMsg from '../components/AllMsg'
+
 
 
 class Main extends React.Component {
@@ -21,7 +23,7 @@ class Main extends React.Component {
         return (
             <>
                 <Navigation username={this.state.user.username} avatar={this.state.user.avatar} />
-                <h1>Messages</h1>
+                <AllMsg />
             </>
         )
     }
