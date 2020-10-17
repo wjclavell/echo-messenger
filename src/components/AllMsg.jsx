@@ -41,33 +41,39 @@ class AllMsg extends React.Component {
         // ]
         this.state.messages.results && this.state.messages.results.reverse().forEach(convo =>{
             // console.log('this is unique convos for each loop', convo)
-            if(!receivers[convo.receiver]){
+            if(!receivers.includes(convo.receiver)){
                 // create obj, and assign the key:value pairs
-                receivers[convo.receiver] = {
+                convo.receiver = {
                     name: convo.receiver_name, 
                     avatar: convo.receiver_avatar, 
                     messages: [convo.message]
                 }
+                receivers.push(convo.receiver)
             }else{
-                receivers[convo.receiver_name].messages.push(convo.message)
+                let existingReceiver = receivers.indexOf(convo.receiver)
+                receivers[existingReceiver].messages.push(convo.message)
             }
 
         })
-        console.log('this is unique receiver', receivers)        
+        console.log('this is the unique receivers array: ', receivers)        
 
 
-        const allMsgs = Object.keys(receivers).length && Object.keys(receivers).map((msg, index) => {
-            console.log(Object.keys(receivers))
+        const allMsgs = receivers && receivers.reverse().map((msg, index) => {
+            console.log('single message',msg)
 
             return (
                 <div className="message-cont" key={index}>
-                    {/* <img src={msg.receiver.avatar}/> */}
+                    <div className="av-cont">
+                    <img alt="user avatar" src={msg.avatar} className="receiver-avatar"/>
+                    </div>
+                    <div className="excerpt">
                     <h3>
-                        {msg.receiver_name}
+                        {msg.name}
                     </h3>
                     <p className="message-p">
-                        {msg.message}
+                        {msg.messages[0]}
                     </p>
+                    </div>
                 </div>
             )
 

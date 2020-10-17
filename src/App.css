@@ -45,6 +45,40 @@
   padding-top: 0.6em;
 }
 
+/* All messages screen */
+.all-messages-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.message-cont {
+  display: flex;
+  justify-content: center;
+  margin-top: 3em;
+  padding: 1em 1em 0 1em;
+  border-bottom: 2px solid #616161;
+  border-top: 2px solid #616161;
+  transition: 0.3s ease;
+}
+.message-cont:hover {
+  border: 2px solid rgb(241, 81, 60);
+  transform: scale(1.1);
+}
+.message-cont:hover h3 {
+  color: rgb(241, 81, 60);
+}
+.receiver-avatar {
+  height: 4em;
+  margin-right: 2em;
+  border-radius: 2em;
+}
+.excerpt h3 {
+  text-align: right;
+}
+.excerpt p {
+  color: #616161;
+}
+
 /* User Profile */
 .profile {
   color: #616161;
