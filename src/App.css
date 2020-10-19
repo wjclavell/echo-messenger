@@ -72,11 +72,16 @@
   margin-right: 2em;
   border-radius: 2em;
 }
+.excerpt {
+  /* min-width: 250px; */
+  width: 100%;
+}
 .excerpt h3 {
   text-align: right;
 }
 .excerpt p {
   color: #616161;
+  text-align: right;
 }
 
 /* User Profile */
