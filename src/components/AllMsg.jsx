@@ -59,11 +59,11 @@ class AllMsg extends React.Component {
 
         // const allMsgs = receivers && receivers.reverse().map((msg, index) => {
         //     console.log('single message',msg)
-        const allMsgs = Object.keys(receivers).length && Object.keys(receivers).map((obj,key) => {
-            console.log('full obj:', receivers)
-            console.log('specific values?:', receivers[key])
-            console.log('one value?:', receivers[key].name)
-            console.log('key:', key)
+        const allMsgs = Object.keys(receivers).length && Object.keys(receivers).map((obj) => {
+            // console.log('full obj:', receivers)
+            // console.log('specific values?:', receivers[key])
+            // console.log('one value?:', receivers[key].name)
+            // console.log('key:', key)
             return (
                 <div className="message-cont" key={obj}>
                     <div className="av-cont">
