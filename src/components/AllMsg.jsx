@@ -59,22 +59,22 @@ class AllMsg extends React.Component {
 
         // const allMsgs = receivers && receivers.reverse().map((msg, index) => {
         //     console.log('single message',msg)
-        const allMsgs = Object.keys(receivers).length && Object.keys(receivers).forEach((key) => {
+        const allMsgs = Object.keys(receivers).length && Object.keys(receivers).map((obj,key) => {
             console.log('full obj:', receivers)
             console.log('specific values?:', receivers[key])
             console.log('one value?:', receivers[key].name)
             console.log('key:', key)
             return (
-                <div className="message-cont" key={key}>
+                <div className="message-cont" key={obj}>
                     <div className="av-cont">
-                    <img alt="user avatar" src={receivers[key].avatar} className="receiver-avatar"/>
+                    <img alt="user avatar" src={receivers[obj].avatar} className="receiver-avatar"/>
                     </div>
                     <div className="excerpt">
                     <h3>
-                        {receivers[key].name}
+                        {receivers[obj].name}
                     </h3>
                     <p className="message-p">
-                        {receivers[key].messages[0].length > 40 ? receivers[key].messages[0].substring(0,40) + '...' : receivers[key].messages[0]}
+                        {receivers[obj].messages[0].length > 40 ? receivers[obj].messages[0].substring(0,40) + '...' : receivers[obj].messages[0]}
                     </p>
                     </div>
                 </div>
