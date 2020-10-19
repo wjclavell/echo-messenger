@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Nav} from "react-bootstrap";
-import Logo from "./hbu.jpg";
+import Logo from "../assets/echo_logo_orange.svg";
 // import { FiUser } from "react-icons/fi";
 
 import UserProfile from './UserProfile';
