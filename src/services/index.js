@@ -49,7 +49,7 @@ export const updateUser = async (userData) => {
 export const deleteUser = async (userData) => {
   const id = userData.id
   try {
-    const resp = await Api.delete(`cloud_msg/UserProfiles/${id}/`, userData);
+    const resp = await Api.delete(`cloud_msg/UserProfiles/${id}/`);
       return resp
   }
   catch(err) {

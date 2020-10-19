@@ -1,6 +1,7 @@
 import React from 'react'
 import Navigation from '../components/Navigation';
-import AllMsg from '../components/AllMsg'
+import AllMsg from '../components/AllMsg';
+import Av from '../components/hbu.jpg'
 
 
 
@@ -10,7 +11,7 @@ class Main extends React.Component {
         this.state ={
             user: {
                 username: localStorage.getItem("username"),
-                avatar: './hbu.jpg',
+                avatar: "",
                 email: localStorage.getItem("email"),
                 token: localStorage.getItem("token"),
                 id: Number(localStorage.getItem("userId"))

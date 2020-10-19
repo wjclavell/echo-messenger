@@ -69,6 +69,7 @@
 }
 .receiver-avatar {
   height: 4em;
+  width: 4em;
   margin-right: 2em;
   border-radius: 2em;
 }
@@ -80,6 +81,7 @@
   text-align: right;
 }
 .excerpt p {
+  text-align: right;
   color: #616161;
   text-align: right;
 }

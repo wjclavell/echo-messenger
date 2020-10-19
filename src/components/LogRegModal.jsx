@@ -72,7 +72,7 @@ class LogRegModal extends React.Component {
         console.log("handleSave Login response", resp)
         console.log("resp status", resp.status )
 
-        if(resp.status == 200) {
+        if(resp.status === 200) {
             //saves data in local storage
             localStorage.setItem("username", resp.data.username)
             localStorage.setItem("userId", resp.data.id)
